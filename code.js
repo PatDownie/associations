@@ -1,28 +1,28 @@
-const group1 = "things on the roof";
-const group2 = "things on rails";
-const group3 = "georges";
-const group4 = "things you press";
+const group1 = "georges";
+const group2 = "incomplete musicals";
+const group3 = "incomplete star wars films";
+const group4 = "keyboard keys";
 
 const wordArray = [
-  { word: "fiddler", group: group1 },
-  { word: "tile", group: group1 },
-  { word: "skylight", group: group1 },
-  { word: "ariel", group: group1 },
+  { word: "bush", group: group1 },
+  { word: "boy", group: group1 },
+  { word: "washington", group: group1 },
+  { word: "curious", group: group1 },
 
-  { word: "tram", group: group2 },
-  { word: "train", group: group2 },
-  { word: "monorail", group: group2 },
-  { word: "minecart", group: group2 },
+  { word: "phantom", group: group2 },
+  { word: "mama", group: group2 },
+  { word: "lion", group: group2 },
+  { word: "les", group: group2 },
 
-  { word: "mallory", group: group3 },
-  { word: "bush", group: group3 },
-  { word: "w bush", group: group3 },
-  { word: "curious", group: group3 },
+  { word: "clone", group: group3 },
+  { word: "revenge", group: group3 },
+  { word: "new", group: group3 },
+  { word: "empire", group: group3 },
 
-  { word: "coffee", group: group4 },
-  { word: "button", group: group4 },
-  { word: "trousers", group: group4 },
-  { word: "gang", group: group4 },
+  { word: "return", group: group4 },
+  { word: "space", group: group4 },
+  { word: "shift", group: group4 },
+  { word: "escape", group: group4 },
 ];
 
 function shuffleArray() {
@@ -84,6 +84,8 @@ function handleWordClick(x) {
   }
 }
 
+let completedGroups = 0;
+
 function handleGuess() {
   if ((guessButtonActive = 1)) {
     if (
@@ -92,6 +94,27 @@ function handleGuess() {
       wordArray[guessesArray[0]].group == wordArray[guessesArray[3]].group
     ) {
       console.log("yay");
+      for (let i = 0; i < guessesArray.length; i++) {
+        const word = document.getElementById(`${guessesArray[i]}`);
+        word.className = "solved";
+      }
+      completedGroups++;
+
+      const resultLocation = document.getElementById(
+        "result" + completedGroups
+      );
+      resultLocation.innerHTML =
+        completedGroups + ". " + wordArray[guessesArray[0]].group;
+
+      guessesArray = [];
+      selectedWords = 0;
+      if (completedGroups == 4) {
+        const title = document.getElementById("title");
+        title.innerHTML = "U R Smart :)";
+        title.className = "pulsing";
+      }
+
+      console.log(guessesArray);
     } else {
       console.log("boo");
     }

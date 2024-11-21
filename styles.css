@@ -1,14 +1,19 @@
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 #pageContainer {
-  background-color: blue;
+  background-color: rgb(19, 19, 103);
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+h1 {
+  color: white;
 }
 
 #mainGrid {
@@ -24,17 +29,98 @@
 
 #mainGrid > * {
   color: white;
-  text-align: center;
   font-weight: 600;
   font-size: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  user-select: none;
 }
 #mainGrid > .unselected {
   background-color: brown;
 }
+#mainGrid > .unselected:hover {
+  background-color: rgb(101, 28, 28);
+}
 #mainGrid > .selected {
   background-color: rgb(233, 75, 75);
+}
+#mainGrid > .solved {
+  background-color: rgb(20, 185, 31);
 }
 
 #buttonDiv {
   margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background-color: darkgoldenrod;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(220, 177, 69);
+}
+
+#resultsDiv {
+  height: 200px;
+  width: 50vw;
+  /* background-color: blue; */
+  margin-bottom: 20px;
+}
+#resultsDiv > * {
+  height: 50px;
+  margin: 0px;
+  /* background-color: rgba(216, 127, 19, 0.312); */
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+}
+
+@media (max-width: 750px) {
+  #resultsDiv {
+    width: 95vw;
+  }
+  #mainGrid {
+    width: 95vw;
+  }
+  #mainGrid > * {
+    font-size: 15px;
+  }
+
+  #resultsDiv > * {
+    font-size: 15px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.pulsing {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }

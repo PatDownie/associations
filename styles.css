@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+#pageContainer {
+  background-color: blue;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#mainGrid {
+  height: 50vh;
+  width: 50vw;
+  background-color: darkgoldenrod;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+#mainGrid > * {
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+}
+#mainGrid > .unselected {
+  background-color: brown;
+}
+#mainGrid > .selected {
+  background-color: rgb(233, 75, 75);
+}
+
+#buttonDiv {
+  margin-top: 20px;
+}
